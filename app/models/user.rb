@@ -9,4 +9,8 @@ class User < ActiveRecord::Base
 
   validates_presence_of :firstname
   validates :lastname, :presence => true
+
+  def admin?
+  	@admin
+  end
 end
