@@ -48,7 +48,7 @@ class CategoriesController < ApplicationController
     end
 
     def is_admin?
-      unless current_user.admin == true
+      unless current_user.admin?
         #binding.pry
         redirect_to new_user_session_path
       end

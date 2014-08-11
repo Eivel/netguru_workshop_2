@@ -11,6 +11,10 @@ class User < ActiveRecord::Base
   validates :lastname, :presence => true
 
   def admin?
-  	@admin
+  	if self.admin == true
+      return true
+    else
+      return false
+    end
   end
 end
