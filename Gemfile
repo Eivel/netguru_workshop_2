@@ -9,6 +9,9 @@ gem 'decent_decoration'
 gem 'devise'
 gem 'simple_form'
 gem 'bootstrap-sass', '~> 3.1.1'
+gem 'bootstrap_form'
+gem 'twitter-bootstrap-rails'
+gem 'less-rails'
 
 gem 'haml-rails'
 

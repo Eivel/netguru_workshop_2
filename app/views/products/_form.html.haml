@@ -7,13 +7,13 @@
           %li= msg
 
   .field
-    = f.label :title
-    = f.text_field :title
+    = f.label :title, class: 'col-md-2 col-xs-6'
+    = f.text_field :title, required: true, class: 'form-control'
   .field
-    = f.label :description
-    = f.text_area :description
+    = f.label :description, class: 'col-md-2 col-xs-6'
+    = f.text_area :description, required: true, class: 'form-control'
   .field
-    = f.label :price
-    = f.text_field :price
+    = f.label :price, class: 'col-md-2 col-xs-6'
+    = f.text_field :price, required: true, class: 'form-control'
   .actions
-    = f.submit 'Save'
+    = f.submit 'Save', class: 'btn btn-success btn-sm'

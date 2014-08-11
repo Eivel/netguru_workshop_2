@@ -9,4 +9,18 @@
     = javascript_include_tag 'application'
 
   %body
-    = yield
+    .container
+      .row
+        .col-md-2.col-md-offset-10
+          #user-actions
+            - unless current_user.nil?
+              = link_to destroy_user_session_path, method: :delete, class: 'btn btn-info' do
+                %i.glyphicon.glyphicon-log-out
+                Log out,
+                = current_user.firstname
+            - else
+              = link_to new_user_session_path, class: 'btn btn-success' do
+                Log in
+        .row
+          .col-md-12
+          = yield
