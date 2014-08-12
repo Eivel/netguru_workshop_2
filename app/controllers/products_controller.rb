@@ -1,6 +1,6 @@
 class ProductsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
-  before_action :is_owner?, only: [:edit, :update]
+  before_action :is_owner?, only: [:edit, :update, :destroy]
 
   expose(:category)
   expose(:products)
@@ -22,6 +22,7 @@ class ProductsController < ApplicationController
 
   def create
     self.product = Product.new(product_params)
+    self.product.user = current_user
     if product.save
       category.products << product
       redirect_to category_product_url(category, product), notice: 'Product was successfully created.'

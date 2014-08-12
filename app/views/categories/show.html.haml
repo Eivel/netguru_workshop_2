@@ -8,15 +8,24 @@
         %table.table.table-striped
           %thead
             %tr
-              %th.col-md-4.col-xs-4 Product
-              %th.col-md-4.col-xs-4 Description
-              %th.col-md-4.col-xs-4 Price
+              %th.col-md-3.col-xs-3 Product
+              %th.col-md-3.col-xs-3 Description
+              %th.col-md-3.col-xs-3 Price
+              %th.col-md-3.col-xs-3 Actions
           %tbody
             - category.products.each do |product|
               %tr
-                %td= link_to product.title, products_path
+                %td= link_to product.title, category_product_path(product.category, product)
                 %td= product.description
                 %td= product.price
+                %td
+                  - if current_user && current_user == product.user
+                    = link_to 'Show', category_product_path(product.category, product), class: 'btn btn-primary btn-xs'
+                    = link_to 'Edit', edit_category_path(category), class: 'btn btn-warning btn-xs'
+                    = link_to 'Destroy', category, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-xs'
+                  - else
+                    = link_to 'Show', category_product_path(product.category, product), class: 'btn btn-primary btn-xs'
+
 
 
 .panel.panel-default

@@ -1,26 +1,43 @@
 %p#notice= notice
 %p#error= flash[:error]
 
-%p
-  %b Title:
-  = product.title
-%p
-  %b Description:
-  = product.description
-%p
-  %b Price:
-  = product.price
+.panel.panel-default
+  .panel-heading
+    %h3= 'Product info'
+  .panel-body
+    .row
+      .col-md-12.col-sm-12
+        %table.table.table-striped
+          %thead
+            %tr
+              %th.col-md-4.col-xs-4 Attribute
+              %th.col-md-4.col-xs-4 Value
+          %tbody
+          %td= 'Product name'
+          %td= product.title
+          %tr
+          %td= 'Description'
+          %td= product.description
+          %tr
+          %td= 'Price'
+          %td= product.price
+          %tr
+          %td= 'Category'
+          %td= product.category.name
 
-%p
-  %b Category
-  = product.category.name
+.panel.panel-success
+  .panel-heading
+    %h4 New Review
+  .panel-body
+    = render 'reviews/form'
+    
+.panel.panel-info
+  .panel-heading
+    %h4 Reviews
+  .panel-body
+    = render reviews
 
-%p
-  %b Reviews
-  = render 'reviews/form'
 
-= render reviews
-
-= link_to 'Edit', edit_category_product_path(category.id, product.id)
+= link_to 'Edit', edit_category_product_path(category.id, product.id), class: 'btn btn-default btn-xs'
 \|
-= link_to 'Back', category_products_path
+= link_to 'Back', category_products_path, class: 'btn btn-default btn-xs'
