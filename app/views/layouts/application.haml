@@ -11,8 +11,13 @@
   %body
     .container
       .row
-        .col-md-2.col-md-offset-10
+        .col-md-2.col-md-offset-8
           #user-actions
+            = link_to root_url, class: 'btn btn-default' do
+              %i.glyphicon.glyphicon-home
+              Homepage
+        .col-md-2.col-md-offset-10
+          #user-actions            
             - unless current_user.nil?
               = link_to destroy_user_session_path, method: :delete, class: 'btn btn-info' do
                 %i.glyphicon.glyphicon-log-out
@@ -22,6 +27,7 @@
               = link_to new_user_session_path, class: 'btn btn-success' do
                 %i.glyphicon.glyphicon-log-in
                 Log in
+
         .row
           .col-md-12
           = yield

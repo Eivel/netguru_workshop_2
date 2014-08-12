@@ -1,12 +1,15 @@
-%h2 Sign in
-= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-  .form-inputs
-    = f.label :email, class: 'col-md-2 col-xs-6'
-    = f.text_field :email, required: true, class: 'form-control'
-    = f.label :password, class: 'col-md-2 col-xs-6'
-    = f.text_field :password, required: true, class: 'form-control'
-  .input-group
-    = f.input :remember_me, as: :boolean if devise_mapping.rememberable?
-  .form-actions
-    = f.submit 'Sign-in', class: 'btn btn-success btn-sm'
-= render "users/shared/links"
+.panel.panel-default
+  .panel-heading
+    %h3 Sign in
+  .panel-body
+    = simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+      .form-inputs
+        = f.label :email, class: 'col-md-2 col-xs-6'
+        = f.text_field :email, required: true, class: 'form-control'
+        = f.label :password, class: 'col-md-2 col-xs-6'
+        = f.text_field :password, required: true, class: 'form-control'
+      .input-group
+        = f.input :remember_me, as: :boolean if devise_mapping.rememberable?
+      .form-actions
+        = f.submit 'Sign-in', class: 'btn btn-success btn-sm'
+        = render "users/shared/links"
