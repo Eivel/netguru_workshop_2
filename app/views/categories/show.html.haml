@@ -21,7 +21,6 @@
                 %td
                   - if current_user && current_user == product.user
                     = link_to 'Show', category_product_path(product.category, product), class: 'btn btn-primary btn-xs'
-                    = link_to 'Edit', edit_category_path(category), class: 'btn btn-warning btn-xs'
                     = link_to 'Destroy', category, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-xs'
                   - else
                     = link_to 'Show', category_product_path(product.category, product), class: 'btn btn-primary btn-xs'
