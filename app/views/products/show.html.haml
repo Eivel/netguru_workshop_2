@@ -24,18 +24,20 @@
           %tr
           %td= 'Category'
           %td= product.category.name
+.row
+  .col-md-6
+    .panel.panel-success
+      .panel-heading
+        %h4 New Review
+      .panel-body
+        = render 'reviews/form'
 
-.panel.panel-success
-  .panel-heading
-    %h4 New Review
-  .panel-body
-    = render 'reviews/form'
-    
-.panel.panel-info
-  .panel-heading
-    %h4 Reviews
-  .panel-body
-    = render reviews
+  .col-md-6
+    .panel.panel-success
+      .panel-heading
+        %h4 Reviews
+      .panel-body
+        = render reviews
 
 
 = link_to 'Edit', edit_category_product_path(category.id, product.id), class: 'btn btn-default btn-xs'

@@ -5,7 +5,8 @@
     = simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f|
       = f.error_notification
       .field
-        = f.input :email, required: true, class: 'form-control col-md-2 col-xs-6'
+        = f.label :email, class: 'col-md-2 col-xs-6'
+        = f.text_field :email, required: true, class: 'form-control'
       .action
         = f.submit 'Submit', class: 'btn btn-success btn-sm'
 

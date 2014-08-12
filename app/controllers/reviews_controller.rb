@@ -7,13 +7,17 @@ class ReviewsController < ApplicationController
   end
 
   def create
-    self.review = Review.new(review_params)
-    self.review.user = current_user
-    if review.save
-      product.reviews << review
-      redirect_to category_product_url(product.category, product), notice: 'Review was successfully created.'
+    unless current_user == nil
+      self.review = Review.new(review_params)
+      self.review.user = current_user
+      if review.save
+        product.reviews << review
+        redirect_to category_product_url(product.category, product), notice: 'Review was successfully created.'
+      else
+        render action: 'new'
+      end
     else
-      render action: 'new'
+      redirect_to new_user_session_path
     end
   end
 

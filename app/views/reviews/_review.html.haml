@@ -3,6 +3,15 @@
     %h4= review.author
   .panel-body
     = review.content
-    \|
-    = review.rating
-
+    - if review.rating >= 4
+      .bg-info
+        Ocena:
+        = review.rating
+    - elsif review.rating == 3
+      .bg-success
+        Ocena:
+        = review.rating
+    - else
+      .bg-danger
+        Ocena:
+        = review.rating
