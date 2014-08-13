@@ -18,11 +18,13 @@
                   - if current_user && current_user.admin == true
                     = link_to 'Edit', edit_category_path(category), class: 'btn btn-warning btn-xs'
                     = link_to 'Destroy', category, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-xs'
-                  - else
-                    Requires admin permissions to make changes
+
+
 
 %br
 
   - if current_user && current_user.admin == true
     = link_to 'New Category', new_category_path, class: 'btn btn-success'
+  - else
+    = link_to 'Requires admin permissions', root_url, disabled: "disabled", class: 'btn btn-default'
 
