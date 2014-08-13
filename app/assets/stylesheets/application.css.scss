@@ -21,11 +21,18 @@
 @import "scaffolds";
 @import "products";
 
-#user-actions {
+#session-button {
   .btn {
     position: absolute;
     top: 20px;
     right: 15px;
+  }
+}
+#homepage-button {
+  .btn {
+    position: absolute;
+    top: 20px;
+    right: 50px;
   }
 }
 
